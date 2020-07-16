@@ -1,5 +1,8 @@
 #include <numeric>
-#include "frac.h"
+#include "fraction.h"
+
+const fraction fraction::ZERO = fraction(0, 1);
+const fraction fraction::ONE = fraction(1, 1);
 
 void fraction::reduce() {
     long long gcd = std::gcd(n, d);
