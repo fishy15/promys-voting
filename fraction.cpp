@@ -1,4 +1,5 @@
 #include <numeric>
+#include <string>
 #include "fraction.h"
 
 const fraction fraction::ZERO = fraction(0, 1);
@@ -38,7 +39,35 @@ fraction fraction::operator/(const fraction &f2) const {
     return (*this) * f2.inv();
 }
 
+bool fraction::operator<(const fraction &f2) const {
+    return n * f2.d < f2.n * d;
+}
+
+bool fraction::operator==(const fraction &f2) const {
+    return !(*this < f2 && f2 < *this);
+}
+
+bool fraction::operator!=(const fraction &f2) const {
+    return !(*this == f2);
+}
+
+bool fraction::operator>(const fraction &f2) const {
+    return f2 < *this;
+}
+
+bool fraction::operator<=(const fraction &f2) const {
+    return !(*this > f2);
+}
+
+bool fraction::operator>=(const fraction &f2) const {
+    return !(*this < f2);
+}
+
 double fraction::to_double() const {
     return (double) n / d;
+}
+
+std::string fraction::to_string() const {
+    return std::to_string(n) + " / " + std::to_string(d);
 }
 

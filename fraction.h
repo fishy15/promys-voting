@@ -1,3 +1,5 @@
+#include <string>
+
 #ifndef FRAC_H
 #define FRAC_H
 
@@ -16,7 +18,14 @@ public:
     fraction operator-(const fraction &f2) const;
     fraction operator*(const fraction &f2) const;
     fraction operator/(const fraction &f2) const;
+    bool operator<(const fraction &f2) const;
+    bool operator==(const fraction &f2) const;
+    bool operator!=(const fraction &f2) const;
+    bool operator>(const fraction &f2) const;
+    bool operator<=(const fraction &f2) const;
+    bool operator>=(const fraction &f2) const;
     double to_double() const;
+    std::string to_string() const;
 };
 
 #endif
